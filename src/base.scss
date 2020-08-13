@@ -1,0 +1,57 @@
+//FONTS
+$roboto: 'Roboto', sans-serif;
+$source: 'Source Sans Pro', sans-serif;
+//COLORS
+$bege: #EEECDB;
+$pink: #EF5781;
+$dark-pink: #FF0F44;
+$light-gray: #AAB1AA;
+$dark-gray: #383743;
+$green: #57BBBC;
+// GENERAL
+h1,h2,h3,h4,h5,h6 {
+  font-family: $roboto;
+  font-weight: 700;
+}
+p {
+  font-family: $roboto;
+  font-weight: 400;
+}
+// PAGE STYLES
+body {
+  background-color: $bege;
+  color: $dark-gray;
+}
+.login-box {border: 1px solid red}
+
+// LOGIN
+.login-box {
+  .logo-login {
+    width: 147px;
+    height: 36px;
+    margin-bottom: 32px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 12.8px;
+    margin-bottom: 12px;
+  }
+  p {
+    font-size: 8.5px;
+    line-height: 12.6px;
+    margin-bottom: 23px;
+  }
+  .login-form {
+    input {
+      background-color: transparent;
+      border: 0;
+      border-bottom: 1px solid $dark-gray;
+    }
+  }
+}
