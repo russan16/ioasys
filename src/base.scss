@@ -2,12 +2,12 @@
 $roboto: 'Roboto', sans-serif;
 $source: 'Source Sans Pro', sans-serif;
 //COLORS
-$bege: #EEECDB;
+$beige: #EEECDB;
 $pink: #EF5781;
 $dark-pink: #FF0F44;
 $light-gray: #AAB1AA;
 $dark-gray: #383743;
-$green: #57BBBC;
+$greeny-blue: #57BBBC;
 // GENERAL
 h1,h2,h3,h4,h5,h6 {
   font-family: $roboto;
@@ -19,10 +19,9 @@ p {
 }
 // PAGE STYLES
 body {
-  background-color: $bege;
+  background-color: $beige;
   color: $dark-gray;
 }
-.login-box {border: 1px solid red}
 
 // LOGIN
 .login-box {
@@ -49,9 +48,57 @@ body {
   }
   .login-form {
     input {
-      background-color: transparent;
       border: 0;
       border-bottom: 1px solid $dark-gray;
+      font-family: $roboto;
+      font-weight: 400;
+      font-size: 11px;
+      padding-bottom: 5px;
+      margin-bottom: 16px;
+      outline: none;
+      padding-left: 25px;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: left bottom 5px;
+      background-size: 17px 17px;
+
+      &.error {
+        border-bottom-color: $dark-pink;
+      }
+
+      &[type="email"] {
+        background-image: url('/imgs/email.svg');
+      }
+      &[type="password"],
+      &[type="text"] {
+        background-image: url('/imgs/cadeado.svg');
+      }
+    }
+    .btn-default {
+      margin-top: 23px;
+      width: 162px;
+      height: 26px;
+      background-color: $greeny-blue;
+      color: #fff;
+      font-family: $roboto;
+      font-weight: 700;
+      font-size: 9px;
+      border: 1px solid $greeny-blue;
+      border-radius: 4px;
+      -webkit-transition: all 400ms ease;
+      -moz-transition: all 400ms ease;
+      -ms-transition: all 400ms ease;
+      -o-transition: all 400ms ease;
+      transition: all 400ms ease;
+      filter: brightness(1);
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+
+      &.disabled {
+        background-color: #748383;
+      }
     }
   }
 }
