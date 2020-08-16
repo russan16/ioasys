@@ -78,6 +78,7 @@ body {
       margin-top: 23px;
       width: 162px;
       height: 26px;
+      outline: none;
       background-color: $greeny-blue;
       color: #fff;
       font-family: $roboto;
@@ -99,6 +100,164 @@ body {
       &.disabled {
         background-color: #748383;
       }
+    }
+  }
+}
+.top-bar {
+  background-image: url('/imgs/bg-top.png');
+  background-color: $pink;
+  background-repeat: repeat-x;
+  background-size: contain;
+
+  .container {
+    height: 75px;
+    position: relative;
+    z-index: 1;
+
+    figure {
+      width: 117px;
+      height: 28px;
+      opacity: 1;
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -ms-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &.search-opened {
+      figure {
+        opacity: 0;
+        -moz-transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        -o-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        transform: scale(0.5);
+      }
+    }
+    .search-wrapper {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      top: calc(50% - 15px);
+      padding-bottom: 5px;
+      width: 30px;
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+      -webkit-transition: all 500ms ease;
+      -moz-transition: all 500ms ease;
+      -ms-transition: all 500ms ease;
+      -o-transition: all 500ms ease;
+      transition: all 500ms ease;
+
+      .search-icon {
+        outline: none;
+        overflow: hidden;
+        text-indent: -500px;
+        border: 0;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        background-image: url('/imgs/search.svg');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      input {
+        outline: none;
+        background-color: transparent;
+        border: 0;
+        width: 0;
+        pointer-events: none;
+        display: block;
+        color: #fff;
+        &::placeholder {
+          color: #991237;
+        }
+      }
+      &.opened {
+        border-bottom-color: #fff;
+        width: 100%;
+       & input {
+         width: 100%;
+         pointer-events: all;
+       }
+      }
+    }
+  }
+}
+.content {
+  margin: 22px 0 30px 0;
+}
+
+.overlay {
+  position: fixed;
+  background-color: rgba(255,255,255,0.6);
+  left: 0;
+  top: 0;
+  z-index: 9999;
+}
+
+.user-bar {
+  background-color: transparent;
+
+  figure {
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border: 1px solid $pink;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .btn-logout {
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    color: $dark-pink;
+
+    i {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      overflow: hidden;
+      text-indent: -500px;
+      background-image: url('/imgs/logout.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.wrapper-result {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 117px);
+
+  .no-result {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+
+    .mute {
+      color: #b5b4b4;
     }
   }
 }

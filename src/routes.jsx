@@ -1,8 +1,20 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+import isAuthenticated from './auth';
 // PAGES
 import Login from './pages/Login';
 import Home from './pages/Home';
+
+const PrivateLogin = ({component: Component, ...rest}) => (
+    <Route
+        {...rest}
+        render={props => !isAuthenticated() ? (
+            <Component {...props}/>
+        ) : (
+            <Redirect to={{pathname: "/home"}}/>
+        )}
+    />
+);
 
 const PrivateRoute = ({component: Component, ...rest}) => (
     <Route
@@ -10,7 +22,7 @@ const PrivateRoute = ({component: Component, ...rest}) => (
         render={props => isAuthenticated() ? (
             <Component {...props}/>
         ) : (
-            <Redirect to={{pathname: "/", state: {from: props.location}}}/>
+            <Redirect to={{pathname: "/"}}/>
         )}
     />
 );
@@ -18,7 +30,7 @@ const PrivateRoute = ({component: Component, ...rest}) => (
 const Routes = () => (
     <BrowserRouter>
         <Switch>
-            <Route path="/" exact component={Login}/>
+            <PrivateLogin path="/" exact component={Login}/>
             <PrivateRoute path="/home" component={Home}/>
         </Switch>
     </BrowserRouter>
