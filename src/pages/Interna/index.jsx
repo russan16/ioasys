@@ -41,7 +41,7 @@ export default function Interna(props) {
             <div className="w-100 bg-top-bar">
                 <div className="top-bar container">
                     <div className="container d-flex flex-row align-items-center">
-                        <Link to="/home">Voltar</Link> {result.enterprise_name}
+                        <Link className="btn-back" to="/home">Voltar</Link> {result.enterprise_name}
                     </div>
                 </div>
             </div>
