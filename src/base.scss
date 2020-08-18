@@ -53,6 +53,8 @@ body {
   }
   .login-form {
     width: 167px;
+    position: relative;
+    z-index: 1;
 
     input {
       border: 0;
@@ -109,9 +111,22 @@ body {
         filter: brightness(1.1);
       }
 
-      &.disabled {
+      &[disabled] {
         background-color: #748383;
+        pointer-events: none;
+        border-color: #748383;
       }
+    }
+
+    .alert-form {
+      color: $dark-pink;
+      text-align: center;
+      width: 100%;
+      font-size: 8px;
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      bottom: 31px;
     }
   }
 }

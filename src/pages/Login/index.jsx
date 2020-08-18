@@ -3,6 +3,7 @@ import logoIoasys from '../../images/logo.png';
 import api from '../../service/api';
 import Spinner from '../../components/spinner';
 import {useHistory} from 'react-router-dom';
+import $ from 'jquery';
 
 export default function Login() {
 
@@ -11,6 +12,13 @@ export default function Login() {
     const [userEmail, setUserEmail] = useState('');
     const [userPass, setUserPass] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+
+    function showAlert() {
+        $('.alert-form').fadeIn(300);
+        setTimeout(() => {
+            $('.alert-form').fadeOut(300);
+        }, 2500);
+    }
 
     // LOGIN
     function Login() {
@@ -30,8 +38,9 @@ export default function Login() {
             })
             .catch((err) => {
                 setIsLoading(false);
-                console.log('Erro:',err);
-                console.log(userEmail,userPass);
+                if (err.response.status === 401) {
+                    showAlert();
+                }
             });
     }
 
@@ -49,6 +58,7 @@ export default function Login() {
                 <form className="login-form d-flex align-items-center justify-content-center flex-column" autoComplete="off">
                     <input onChange={(e) => {setUserEmail(e.target.value)}}  id="user_email" type="email" placeholder="E-mail"/>
                     <input onChange={(e) => {setUserPass(e.target.value)}} id="user_pass" type="password" placeholder="Senha"/>
+                    <span className="alert-form" style={{display: 'none'}}>Credenciais informadas são inválidas.</span>
                     <button onClick={() => {Login()}} className="btn-default" type="button">ENTRAR</button>
                 </form>
             </div>
