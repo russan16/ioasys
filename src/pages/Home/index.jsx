@@ -58,18 +58,20 @@ export default function Home() {
         <div className="w-100">
             <Spinner status={isLoading}/>
 
-            <div className="top-bar">
-                <div id="search" className="container d-flex flex-row justify-content-center align-items-center">
-                    <Link to="/home">
-                        <figure className="logo-top-bar m-0">
-                            <img src={logo} alt="IOASYS"/>
-                        </figure>
-                    </Link>
-                    <div id="search_wrapper" className="search-wrapper d-flex flex-row">
-                        <button onClick={() => {openSearch()}} type="button" id="toggle-search" className="search-icon">
-                            Buscar
-                        </button>
-                        <input onKeyUp={(e) => {handleSearch(e.key)}} onChange={(e) => {setSearch(e.target.value)}} type="search" placeholder="Pesquisar"/>
+            <div className="w-100 bg-top-bar">
+                <div className="top-bar container">
+                    <div id="search" className="container d-flex flex-row justify-content-center align-items-center">
+                        <Link to="/home">
+                            <figure className="logo-top-bar m-0">
+                                <img src={logo} alt="IOASYS"/>
+                            </figure>
+                        </Link>
+                        <div id="search_wrapper" className="search-wrapper d-flex flex-row">
+                            <button onClick={() => {openSearch()}} type="button" id="toggle-search" className="search-icon">
+                                Buscar
+                            </button>
+                            <input onKeyUp={(e) => {handleSearch(e.key)}} onChange={(e) => {setSearch(e.target.value)}} type="search" placeholder="Pesquisar"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,21 +87,32 @@ export default function Home() {
                 </div>
             </div>
             <div className="container">
-                <div className="wrapper-result w-100">
+                <div className="wrapper-result w-100 pt-5">
                     {hasResult ? (
                         result.enterprises.length > 0 ? (
                             result.enterprises.map((item) => (
-                                <div key={item.id}>{item.enterprise_name}</div>
+                                <div key={item.id} className="result-item">
+                                    <Link to={`/interna/${item.id}`} className="result-item-link d-flex flex-row">
+                                        <div className="big-letter d-flex justify-content-center align-items-center">
+                                            {item.enterprise_name[0]}
+                                        </div>
+                                        <div className="enterprise-data d-flex flex-column justify-content-center">
+                                            <h2 className="text-truncate">{item.enterprise_name}</h2>
+                                            <p className="text-truncate">{item.enterprise_type.enterprise_type_name}</p>
+                                            <span>{item.country}</span>
+                                        </div>
+                                    </Link>
+                                </div>
                             ))
                         ) : (
                             <div className="no-result">
-                                <span className="mute">Nenhuma empresa foi encontrada para a busca realizada.</span>
+                                <span className="d-block text-center mute">Nenhuma empresa foi encontrada para a busca realizada.</span>
                             </div>
                         )
 
                     ) : (
                         <div className="no-result">
-                            <span>Clique na busca para iniciar</span>
+                            <span className="d-block text-center">Clique na busca para iniciar</span>
                         </div>
                     )}
                 </div>

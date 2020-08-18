@@ -5,9 +5,12 @@ $source: 'Source Sans Pro', sans-serif;
 $beige: #EEECDB;
 $pink: #EF5781;
 $dark-pink: #FF0F44;
+$dark-indigo: #1a0e49;
 $light-gray: #AAB1AA;
+$mid-gray: #8d8c8c;
 $dark-gray: #383743;
 $greeny-blue: #57BBBC;
+$green: #7DC075;
 // GENERAL
 h1,h2,h3,h4,h5,h6 {
   font-family: $roboto;
@@ -25,6 +28,8 @@ body {
 
 // LOGIN
 .login-box {
+  width: 167px;
+
   .logo-login {
     width: 147px;
     height: 36px;
@@ -47,6 +52,8 @@ body {
     margin-bottom: 23px;
   }
   .login-form {
+    width: 167px;
+
     input {
       border: 0;
       border-bottom: 1px solid $dark-gray;
@@ -61,6 +68,11 @@ body {
       background-repeat: no-repeat;
       background-position: left bottom 5px;
       background-size: 17px 17px;
+      width: 100%;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
 
       &.error {
         border-bottom-color: $dark-pink;
@@ -76,7 +88,7 @@ body {
     }
     .btn-default {
       margin-top: 23px;
-      width: 162px;
+      width: 100%;
       height: 26px;
       outline: none;
       background-color: $greeny-blue;
@@ -103,12 +115,13 @@ body {
     }
   }
 }
-.top-bar {
+.bg-top-bar {
   background-image: url('/imgs/bg-top.png');
-  background-color: $pink;
   background-repeat: repeat-x;
   background-size: contain;
-
+  background-color: $pink;
+}
+.top-bar {
   .container {
     height: 75px;
     position: relative;
@@ -259,5 +272,97 @@ body {
     .mute {
       color: #b5b4b4;
     }
+  }
+
+  .result-item {
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .result-item-link {
+      background-color: #fff;
+      padding: 13.5px 15.3px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      border-radius: 4px;
+      -webkit-transition: all 400ms ease;
+      -moz-transition: all 400ms ease;
+      -ms-transition: all 400ms ease;
+      -o-transition: all 400ms ease;
+      transition: all 400ms ease;
+
+      &:hover {
+        text-decoration: none;
+        -moz-transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+      }
+    }
+
+    .big-letter {
+      color: #fff;
+      text-transform: uppercase;
+      background-color: $green;
+      height: 80px;
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1em;
+    }
+
+    .enterprise-data {
+      padding-left: 19px;
+
+      h2 {
+        font-family: $roboto;
+        font-weight: 700;
+        color: $dark-indigo;
+        font-size: 15px;
+        margin-bottom: 2px;
+      }
+
+      p {
+        font-size: 12px;
+        color: $mid-gray;
+        margin-bottom: 2px;
+      }
+
+      span {
+        margin-bottom: 2px;
+        font-family: $roboto;
+        font-weight: 400;
+        font-size: 9px;
+        color: $mid-gray;
+      }
+    }
+  }
+}
+
+.description {
+  margin-top: 22px;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 4px;
+  padding: 24px 36px;
+
+  p {
+    font-size: 17px;
+    color: $mid-gray;
+  }
+}
+
+// MEDIA QUERIE
+
+@media screen and (min-width: 280px) {
+  .big-letter {
+    width: 120px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .big-letter {
+    width: 146.5px;
   }
 }

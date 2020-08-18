@@ -36,9 +36,9 @@ export default function Login() {
     }
 
     return(
-        <section className="min-vh-100 d-flex align-items-center py-3">
+        <section className="min-vh-100 d-flex align-items-center justify-content-center py-3">
             <Spinner status={isLoading}/>
-            <div className="login-box col-10 col-md-6 col-lg-2 offset-1 offset-md-3 offset-lg-5">
+            <div className="login-box">
                 <figure className="logo-login mx-auto">
                     <img src={logoIoasys} alt="IOASYS"/>
                 </figure>
@@ -46,10 +46,10 @@ export default function Login() {
                     <h1 className="text-center">BEM-VINDO AO<br/>EMPRESAS</h1>
                     <p className="text-center">Lorem ipsum dolor sit amet, consectetur<br/> adipisicing elit. Eos, ex?</p>
                 </div>
-                <form className="login-form d-flex flex-column" autoComplete="off">
+                <form className="login-form d-flex align-items-center justify-content-center flex-column" autoComplete="off">
                     <input onChange={(e) => {setUserEmail(e.target.value)}}  id="user_email" type="email" placeholder="E-mail"/>
                     <input onChange={(e) => {setUserPass(e.target.value)}} id="user_pass" type="password" placeholder="Senha"/>
-                    <button onClick={() => {Login()}} className="btn-default mx-auto" type="button">ENTRAR</button>
+                    <button onClick={() => {Login()}} className="btn-default" type="button">ENTRAR</button>
                 </form>
             </div>
         </section>
