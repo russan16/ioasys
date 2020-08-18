@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import logoIoasys from '../../images/logo.png';
 import api from '../../service/api';
 import Spinner from '../../components/spinner';
@@ -44,6 +44,14 @@ export default function Login() {
             });
     }
 
+    useEffect(() => {
+        if (userEmail.length > 0 && userPass.length > 0) {
+            $('.btn-default').attr('disabled', false);
+        } else {
+            $('.btn-default').attr('disabled', true);
+        }
+    }, [userEmail,userPass]);
+
     return(
         <section className="min-vh-100 d-flex align-items-center justify-content-center py-3">
             <Spinner status={isLoading}/>
@@ -60,6 +68,7 @@ export default function Login() {
                     <input onChange={(e) => {setUserPass(e.target.value)}} id="user_pass" type="password" placeholder="Senha"/>
                     <span className="alert-form" style={{display: 'none'}}>Credenciais informadas são inválidas.</span>
                     <button onClick={() => {Login()}} className="btn-default" type="button">ENTRAR</button>
+
                 </form>
             </div>
         </section>

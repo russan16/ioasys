@@ -355,6 +355,12 @@ body {
   }
 }
 
+.company-name {
+  color: #fff;
+  font-family: $roboto;
+  font-weight: 400;
+  font-size: 17px;
+}
 .description {
   margin-top: 22px;
   background-color: #fff;
@@ -362,9 +368,40 @@ body {
   border-radius: 4px;
   padding: 24px 36px;
 
+  .big-letter {
+    background-color: $green;
+    color: #fff;
+    font-size: 65px;
+    font-weight: 800;
+    width: 100%;
+    height: 147.5px;
+    margin-bottom: 24px
+  }
+
   p {
     font-size: 17px;
     color: $mid-gray;
+  }
+}
+
+.btn-back {
+  color: #fff;
+  font-size: 25px;
+  line-height: 1em;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+  margin-right: 40px;
+
+  &:hover {
+    color: #fff;
+    -moz-transform: translateX(-10px);
+    -webkit-transform: translateX(-10px);
+    -o-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);
   }
 }
 
