@@ -36,7 +36,6 @@ export default function Home() {
                     "uid": localStorage.getItem('uid')
                 }
             }).then((res) => {
-                console.log(res.data);
                 setResult(res.data);
                 setIsLoading(false);
             })
@@ -50,7 +49,6 @@ export default function Home() {
     }
 
     useEffect(() => {
-        console.log('useEffect',result);
         result.enterprises ? setHasResult(true) : setHasResult(false)
     }, [result]);
 

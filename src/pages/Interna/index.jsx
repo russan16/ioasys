@@ -10,12 +10,6 @@ export default function Interna(props) {
     const [result, setResult] = useState([]);
     const id = props.match.params.id;
 
-    /*function firstLetter(txt) {
-        if (txt !== undefined) {
-            return txt[0];
-        }
-    }*/
-
     useEffect(() => {
         setIsLoading(true);
         api.get(`/enterprises/${id}`, {
@@ -30,7 +24,6 @@ export default function Interna(props) {
                 setIsLoading(false);
             })
             .catch((err) => {
-                console.log(err.response.status);
                 setIsLoading(false);
             });
     }, [id]);

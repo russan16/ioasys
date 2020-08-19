@@ -1,11 +1,12 @@
 {
+    "name": "IOSASYS Empresas",
+    "app_name": "IOSASYS Empresas",
+    "short_name": "IOSASYS ",
     "theme_color": "#EF5781",
     "background_color": "#FFFFFF",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "app_name": "IOSASYS Empresas",
-    "short_name": "IOSASYS ",
     "icons": [
         {
             "src": "pwa-icons/icon-192x192.png",

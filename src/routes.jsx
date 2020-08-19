@@ -34,7 +34,6 @@ const Routes = () => (
             <PrivateLogin path="/" exact component={Login}/>
             <PrivateRoute path="/home" component={Home}/>
             <PrivateRoute path="/interna/:id" component={Interna}/>
-            {/*<Route path="*" component={}/>*/}
         </Switch>
     </BrowserRouter>
 )

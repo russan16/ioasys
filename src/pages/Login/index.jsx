@@ -29,7 +29,6 @@ export default function Login() {
         })
             .then((res) => {
                 setIsLoading(false);
-                console.log('response',res.headers);
                 localStorage.setItem('token',res.headers['access-token']);
                 localStorage.setItem('client',res.headers['client']);
                 localStorage.setItem('uid',res.headers['uid']);
